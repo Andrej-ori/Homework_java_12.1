@@ -12,13 +12,18 @@ public class ProductManager {
     public ProductManager(ProductRepository repository) {
         this.repository = repository;
     }
+
     // получить все продукты сохраненые в массиве в порядке добавления
-       public void add(Product product) {
+    public Product[] findAll() {
+        return repository.findAll();
+    }
+    // сохранить продукт в массив
+    public void add(Product product) {
         repository.addProduct(product);
     }
     // удаление продукта из массива по Id
     public void removeById(int id) {
-        removeById(id);
+        repository.removeById(id);
     }
     // логика менеджера
     // поиск по названию продукта

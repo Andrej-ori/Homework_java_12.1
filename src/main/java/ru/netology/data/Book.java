@@ -2,7 +2,6 @@ package ru.netology.data;
 
 public class Book extends Product {
 
-    private int id;
     private String author;
 
     public Book() {

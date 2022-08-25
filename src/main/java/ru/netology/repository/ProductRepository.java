@@ -22,8 +22,9 @@ public class ProductRepository {
     public Product[] findAll() {
       return products;  
     }
+
     // удалить товар по инднтификатору Id
-    public void removeByID(int id) {
+    public void removeById(int id) {
         Product[] tmp = new Product[products.length - 1];
         int index = 0;
         for (Product product : products) {
