@@ -2,6 +2,7 @@ package ru.netology.repository;
 
 import ru.netology.data.Product;
 import ru.netology.exception.NotFoundException;
+import ru.netology.exception.AlreadyExistsException;
 
 public class ProductRepository {
     private Product[] products = new Product[0];
@@ -12,6 +13,9 @@ public class ProductRepository {
 
     // добавление нового продукта в массив
     public void addProduct(Product addProduct) {
+        if (findById(addProduct.getId()) != null) {
+            throw new AlreadyExistsException("Element with Id: " + addProduct.getId() + "  already added");
+        }
         Product[] tmp = new Product[products.length + 1];
         for (int i = 0; i < products.length; i++) {
             tmp[i] = products[i];
