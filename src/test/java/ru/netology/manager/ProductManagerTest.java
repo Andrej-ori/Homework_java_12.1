@@ -14,9 +14,9 @@ public class ProductManagerTest {
     private Product product1 = new Product(1, "Product1", 100);
     private Product product2 = new Book(2, "Book1", 200, "Autor1");
     private Product product3 = new Smartphone(3, "Phone", 300, "Manufacture1");
-    private Product product4 = new Product(4, "Product1" ,400);
+    private Product product4 = new Product(4, "Product1", 400);
     private Product product5 = new Book(5, "Book2", 500, "Autor2");
-    private Product product6 = new Smartphone(6, "Phone", 600,"Manufacture2");
+    private Product product6 = new Smartphone(6, "Phone", 600, "Manufacture2");
 
     @BeforeEach
     public void setInitialState() {
@@ -29,16 +29,9 @@ public class ProductManagerTest {
     }
 
     @Test
-    public void  findAll() { // возврат всех товаров добавленных в массив в порядке добавления
+    public void findAll() { // возврат всех товаров добавленных в массив в порядке добавления
 
-        Product[] expected = {
-                product1,
-                product2,
-                product3,
-                product4,
-                product5,
-                product6
-        };
+        Product[] expected = {product1, product2, product3, product4, product5, product6};
         Product[] actual = manager.findAll();
 
         Assertions.assertArrayEquals(expected, actual);
@@ -64,15 +57,9 @@ public class ProductManagerTest {
 
         manager.removeById(2);
 
-        Product[] expected = {
-                product1,
-                product3,
-                product4,
-                product5,
-                product6
-        };
+        Product[] expected = {product1, product3, product4, product5, product6};
         Product[] actual = manager.findAll();
 
-        Assertions.assertArrayEquals(expected,actual);
+        Assertions.assertArrayEquals(expected, actual);
     }
 }

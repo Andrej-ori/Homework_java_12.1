@@ -17,14 +17,17 @@ public class ProductManager {
     public Product[] findAll() {
         return repository.findAll();
     }
+
     // сохранить продукт в массив
     public void add(Product product) {
         repository.addProduct(product);
     }
+
     // удаление продукта из массива по Id
     public void removeById(int id) {
         repository.removeById(id);
     }
+
     // логика менеджера
     // поиск по названию продукта
     public Product[] searcBy(String text) {
@@ -43,6 +46,7 @@ public class ProductManager {
         }
         return results;
     }
+
     //определение соответствия товара запросу
     private boolean matches(Product product, String search) {
 //        if (product.getName().contains(text)) {
