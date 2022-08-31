@@ -14,7 +14,7 @@ public class ProductManagerTest {
     private Product product1 = new Product(1, "Product1", 100);
     private Product product2 = new Book(2, "Book1", 200, "Autor1");
     private Product product3 = new Smartphone(3, "Phone", 300, "Manufacture1");
-    private Product product4 = new Product(4, "Product1", 400);
+    private Product product4 = new Product(4, "Product2", 400);
     private Product product5 = new Book(5, "Book2", 500, "Autor2");
     private Product product6 = new Smartphone(6, "Phone", 600, "Manufacture2");
 
@@ -38,16 +38,28 @@ public class ProductManagerTest {
     }
 
     @Test
-    public void searchByName() { // поиск добавленого товара по названию продукта
-//        manager.add(product1);
-//        manager.add(product2);
-//        manager.add(product3);
-//        manager.add(product4);
-//        manager.add(product5);
-//        manager.add(product6);
+    public void searchByName() { // поиск добавленого товара по названию продукта (одна шт)
+
+        Product[] expected = {product2};
+        Product[] actual = manager.searcBy("Book1");
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void searchByName2() { // поиск добавленого товара по названию продукта (несколько шт)
 
         Product[] expected = {product3, product6};
         Product[] actual = manager.searcBy("Phone");
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void searchByNameNull() { // поиск товара которого нет в массиве
+
+        Product[] expected = new Product[0];
+        Product[] actual = manager.searcBy("Product6");
 
         Assertions.assertArrayEquals(expected, actual);
     }

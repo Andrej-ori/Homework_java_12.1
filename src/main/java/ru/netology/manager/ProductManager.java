@@ -49,11 +49,6 @@ public class ProductManager {
 
     //определение соответствия товара запросу
     private boolean matches(Product product, String search) {
-//        if (product.getName().contains(text)) {
-//            return true;
-//        }else {
-//            return false;
-//        }
         return product.getName().contains(search);
     }
 }
